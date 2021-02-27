@@ -1,0 +1,10 @@
+.seven-day-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.seven-day-container-cell {
+  margin: 10px;
+  background-color: lightgreen;
+  height: 100px;
+}

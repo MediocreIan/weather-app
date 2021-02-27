@@ -1,0 +1,10 @@
+.hero-display-box {
+  width: 80%;
+  margin: auto;
+  padding: 50px;
+  background-color: lightblue;
+}
+
+.clear_sky {
+  background-color: yellow !important;
+}
