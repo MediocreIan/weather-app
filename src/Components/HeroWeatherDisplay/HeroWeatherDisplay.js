@@ -36,7 +36,7 @@ class HeroWeatherDisplay extends React.Component
   {
     if (this.state.temp === 0)
     {
-      fetch(`http://localhost:8000/lat=${this.state.lat}&lng=${this.state.lng}`).then((res) =>
+      fetch(`https://blooming-river-20950.herokuapp.com/lat=${this.state.lat}&lng=${this.state.lng}`).then((res) =>
       {
         return res.json()
       }).then((data) =>

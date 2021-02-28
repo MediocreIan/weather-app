@@ -18,21 +18,14 @@ class SevenDayWeatherDisplay extends React.Component
 
   componentWillMount()
   {
-    // let myVar = this
-    // navigator.geolocation.getCurrentPosition((position) =>
-    // {
-    //   myVar.setState({ lat: position.coords.latitude, lng: position.coords.longitude })
-    // })
     this.setState({ lat: this.props.lat, lng: this.props.lng })
-    console.log("STATE SET WITH PROPS")
 
   }
   componentDidMount()
   {
     if (this.state.daily.length === 0)
-      console.log(this.state.lat)
     {
-      fetch(`http://localhost:8000/sevenDay/lat=${this.state.lat}&lng=${this.state.lng}`).then((res) =>
+      fetch(`https://blooming-river-20950.herokuapp.com/sevenDay/lat=${this.state.lat}&lng=${this.state.lng}`).then((res) =>
       {
         return res.json()
       }).then((data) =>
@@ -61,11 +54,9 @@ class SevenDayWeatherDisplay extends React.Component
 
     this.state.daily.forEach((e, i) =>
     {
-      console.log(e)
       dayCells.push(<div className="seven-day-container-cell" >{new Date(this.addXDays(this.state.currentDateTime, i)).toLocaleString()} <p>{Math.floor(e.temp.day)}°</p><p>{e.weather[0].description}</p></div>
       )
     });
-    console.log(this.state)
     return (
       <div className="seven-day-container">
         {dayCells}

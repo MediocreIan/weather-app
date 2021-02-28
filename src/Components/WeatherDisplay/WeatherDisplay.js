@@ -53,7 +53,7 @@ class WeatherDisplay extends React.Component
   {
     e.preventDefault()
 
-    fetch(`http://localhost:8000/search/q=${this.state.searchString}`).then((res) =>
+    fetch(`https://blooming-river-20950.herokuapp.com/search/q=${this.state.searchString}`).then((res) =>
     {
       return res.json()
     }).then((data) =>
