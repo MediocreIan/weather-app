@@ -64,8 +64,10 @@ class HeroWeatherDisplay extends React.Component
     return (
       <>
         <div className={heroClasses.join(' ')}>
-          <p>temperature at {this.state.currentDateTime} in {this.state.cityName} is {this.state.temp}</p>
-          <p>placeholder:a hero image witht the current weather</p>
+          <h2>{this.state.cityName}</h2>
+          <p>{this.state.currentDateTime}</p>
+          <h3>{Math.floor(this.state.temp)}°</h3>
+          <p>{this.state.description}</p>
         </div>
       </>
     )

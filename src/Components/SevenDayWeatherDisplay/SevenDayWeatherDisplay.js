@@ -61,7 +61,8 @@ class SevenDayWeatherDisplay extends React.Component
 
     this.state.daily.forEach((e, i) =>
     {
-      dayCells.push(<div className="seven-day-container-cell">{new Date(this.addXDays(this.state.currentDateTime, i)).toLocaleString()} <p>{e.temp.day}</p></div>
+      console.log(e)
+      dayCells.push(<div className="seven-day-container-cell" >{new Date(this.addXDays(this.state.currentDateTime, i)).toLocaleString()} <p>{Math.floor(e.temp.day)}°</p><p>{e.weather[0].description}</p></div>
       )
     });
     console.log(this.state)

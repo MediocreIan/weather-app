@@ -16,7 +16,8 @@ class WeatherDisplay extends React.Component
       lng: 0,
       searchString: "",
       key: 0,
-      key2: 10
+      key2: 10,
+      error: ''
     }
   }
 
@@ -59,11 +60,12 @@ class WeatherDisplay extends React.Component
     {
       if (data.cod === 200)
       {
-        this.setState({ lat: data.coord.lat, lng: data.coord.lon, key: this.state.key + 1, key2: this.state.key2 + 10 })
+        this.setState({ lat: data.coord.lat, lng: data.coord.lon, key: this.state.key + 1, key2: this.state.key2 + 10, error: "" })
       }
       else
       {
         console.log(data.message)
+        this.setState({ error: data.message })
       }
     })
   }
@@ -72,12 +74,14 @@ class WeatherDisplay extends React.Component
   {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" name="search" id="search-bar" onChange={this.handleSearchInput} />
-          <input type="submit" name="search-submit" id="search-submit" />
-        </form>
         <HeroWeatherDisplay lat={this.state.lat} lng={this.state.lng} key={this.state.key} />
         <SevenDayWeatherDisplay lat={this.state.lat} lng={this.state.lng} key={this.state.key2} />
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="search">Enter New City Name</label>
+          <input type="text" name="search" id="search-bar" onChange={this.handleSearchInput} />
+          <input type="submit" name="search-submit" id="search-submit" />
+          {this.state.error.length > 0 ? <p>{this.state.error}</p> : null}
+        </form>
       </>
     )
   }

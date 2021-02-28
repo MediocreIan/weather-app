@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Header from '../Header/Header'
 import WeatherDisplay from '../WeatherDisplay/WeatherDisplay'
 
 class ViewWeather extends React.Component
@@ -19,10 +18,7 @@ class ViewWeather extends React.Component
   {
     return (
       <>
-
-        <Header />
         <WeatherDisplay coords={this.state.activeLocation} />
-        <h2>view weather main body</h2>
       </>
     )
   }
